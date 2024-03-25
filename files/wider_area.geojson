@@ -1,1 +1,1 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"coordinates":[[[XMIN,YMAX],[XMIN,YMIN],[XMAX,YMIN],[XMAX,YMAX],[XMIN,YMAX]]],"type":"Polygon"}}]}
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"coordinates":[[[28.742503,-26.962952],[28.742503,-26.965281],[28.745352,-26.965281],[28.745352,-26.962952],[28.742503,-26.962952]]],"type":"Polygon"}}]}
