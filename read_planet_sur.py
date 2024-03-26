@@ -23,7 +23,8 @@ def gdal_reader(input_arg: Tuple[str, str]) -> Tuple[np.ndarray, Tuple[float, fl
     - A tuple containing the image array, the geotransform, and the coordinate reference system (CRS).
     """
     input_file, cropline_file = input_arg
-    g = gdal.Warp('', input_file, format='MEM', resampleAlg=gdal.GRA_Average, cutlineDSName=cropline_file, cropToCutline=True, xRes=5, yRes=5, dstNodata=np.nan, outputType=gdal.GDT_Float32)
+    g = gdal.Warp('', input_file, format='MEM', resampleAlg=gdal.GRA_Average, cutlineDSName=cropline_file, cropToCutline=True, xRes=10, yRes=10, dstNodata=np.nan, outputType=gdal.GDT_Float32)
+    g = gdal.Warp('', g, format='MEM', outputBounds=[616950.0, 6881150.0, 617750.0, 6881790.0])
     geo_trans = g.GetGeoTransform()
     crs = g.GetProjection()
     return g.ReadAsArray(), geo_trans, crs
@@ -102,7 +103,7 @@ da = create_xarray_dataarray(dats, [szas, vzas, raas], image_dates, geoTrans, cr
 
 da = da.to_dataset(name='planet_data')
 # save to netCDF
-da.to_netcdf('planet_data.nc')
+da.to_netcdf('planet_data_10m.nc')
 
 # # load from netCDF
-dat = xr.load_dataset('planet_data.nc')
+dat = xr.load_dataset('planet_data_10m.nc')
