@@ -1,3 +1,6 @@
 *.npz
+.DS_Store
+dir_to_ignore/*
 old/*
 *checkpoint*
+*psscene_analytic*
