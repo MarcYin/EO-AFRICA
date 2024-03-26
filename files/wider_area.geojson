@@ -1,1 +1,0 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"coordinates":[[[XMIN,YMAX],[XMIN,YMIN],[XMAX,YMIN],[XMAX,YMAX],[XMIN,YMAX]]],"type":"Polygon"}}]}
