@@ -1,6 +1,14 @@
 import geopandas as gpd
 import pandas as pd
-df = gpd.read_file('SF_2023_samples_corrected.geojson')
+
+year = 2023
+# script to create parsed json file
+# 'SF_{year}_samples_corrected_parsed.geojson'
+# from f'SF_{year}_samples_corrected.geojson'
+# and f'SF_{year}_ground_data.xlsx'
+
+
+df = gpd.read_file(f'SF_{year}_samples_corrected.geojson')
 features = []
 for i in range(5):
     for j in range(5):
@@ -19,7 +27,7 @@ for i in range(5):
 gdf = gpd.GeoDataFrame(pd.concat(features, ignore_index=True))
 # gdf.to_file('SF_2023_samples_corrected_parsed.geojson', driver='GeoJSON')
 
-df = pd.ExcelFile('SF_2023_ground_data.xlsx').parse('LAI')
+df = pd.ExcelFile(f'SF_{year}_ground_data.xlsx').parse('LAI')
 
 import datetime
 dates = df.iloc[:, 2:].columns
@@ -43,7 +51,7 @@ for name in gdf.Name:
     # gdf[gdf.Name == name] = sub_gdf
 gdf['LAI_measurement'] = lais
 
-df = pd.ExcelFile('SF_2023_ground_data.xlsx').parse('Chl')
+df = pd.ExcelFile(f'SF_{year}_ground_data.xlsx').parse('Chl')
 
 import datetime
 dates = df.iloc[:, 2:].columns
@@ -69,4 +77,4 @@ gdf['Cab_measurement'] = cabs
 
 
 gdf['measurement_dates'] = [str(dates)] * len(lais)
-gdf.to_file('SF_2023_samples_corrected_parsed.geojson', driver='GeoJSON')
+gdf.to_file(f'SF_{year}_samples_corrected_parsed.geojson', driver='GeoJSON')
