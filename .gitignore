@@ -4,3 +4,5 @@ dir_to_ignore/*
 old/*
 *checkpoint*
 *psscene_analytic*
+new/*
+logs/*log
