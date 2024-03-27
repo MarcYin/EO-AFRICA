@@ -1,3 +1,8 @@
+src/__pycache__/*
+*.rst
+*_files/*
+*.pyc
+src/__*
 *.npz
 .DS_Store
 dir_to_ignore/*

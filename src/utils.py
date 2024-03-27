@@ -98,7 +98,7 @@ def plot_maps(doys: np.array, post_bio_tensor: np.array, mask: np.array, \
         im = axs[i].imshow(lai_map, vmin=codes[3], vmax=codes[4])
         fig.colorbar(im, ax=axs[i], shrink=SHRINK, label=f"{str.upper(name)} {codes[2]}")
         for j in range(int(Acoords.shape[0]/5)):
-            axs[i].plot(SHRINK*Acoords.T[1,j*5:(j+1)*5],SHRINK*Acoords.T[0,j*5:(j+1)*5],symb[j])
+            axs[i].plot(Acoords.T[0,j*5:(j+1)*5],Acoords.T[1,j*5:(j+1)*5],symb[j])
         axs[i].set_title("DOY: %d" % doys[i])
 
     # remove empty plots
