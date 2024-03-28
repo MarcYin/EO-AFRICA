@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+for f in "2022" "2023"
+do
+  for ff in ARC_Validation_SA_${f}_BIGACE arc_${f}_planet
+  do
+    jupyter nbconvert --to rst ${ff}.ipynb 
+    rm -rf docs/${ff}_*
+    mv ${ff}.rst ${ff}_files docs
+    pushd docs 
+    rst2pdf ${ff}.rst
+    popd
+  done
+done
+
