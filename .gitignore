@@ -1,5 +1,7 @@
 src/__pycache__/*
 *.rst
+*/~$*
+~$*
 *_files/*
 *.pyc
 src/__*
@@ -11,3 +13,4 @@ old/*
 *psscene_analytic*
 new/*
 logs/*log
+journalPaperDraftV1.0.docx
